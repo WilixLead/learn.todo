@@ -10,7 +10,7 @@ const Board = mongoose.model('Board', {
     items: Array 
 })
 
-const itemName =const Board = mongoose.model('Item', {
+const itemName = mongoose.model('Item', {
     nameItem: String
     
 })
