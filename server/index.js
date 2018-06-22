@@ -14,13 +14,6 @@ function addBoard() {
         board.save().then(res.send(' saved '))
     })
 }
-const bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-
-app.use(bodyParser.json());
 
 app.get('/boards', (req, res) => {
     res.send('Hello world!');
