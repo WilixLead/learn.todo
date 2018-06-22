@@ -15,5 +15,6 @@ const BoardName = mongoose.model('BoardName', {
 
 
 module.exports = {
-    BoardName: BoardName
+    BoardName: BoardName,
+    ItemName: ItemName
 }
