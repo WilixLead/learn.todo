@@ -6,9 +6,13 @@ mongoose.connect('mongodb://localhost/BoardsDB');
 const Board = mongoose.model('Board', {
     BoardName: {
         type: String,
-        default: ''
     },
-    Item: String
+    Items: Array 
+})
+
+const ItemName =const Board = mongoose.model('Item', {
+    NameItem: {
+    }
 })
 
 
