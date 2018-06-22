@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/BoardsDB');
+mongoose.connect('mongodb://localhost/boards');
 
 
 const Board = mongoose.model('Board', {
-    BoardName: {
+    boardName: {
         type: String,
     },
-    Items: Array 
+    items: Array 
 })
 
-const ItemName =const Board = mongoose.model('Item', {
-    NameItem: {
-    }
+const itemName =const Board = mongoose.model('Item', {
+    nameItem: String
+    
 })
 
 
