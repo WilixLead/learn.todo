@@ -14,7 +14,7 @@ app.get('/boards', (req, res) => {
 });
 
 function deleteBoard() {
-    app.delete('/:id', function(req, res, ) {
+    app.delete('/:id', function(req, res) {
         db.Board.deleteOne({ _id: { $in: req.params.id } }).then(() => {
             res.send(' Deleted ');
         })
