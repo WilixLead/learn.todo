@@ -11,7 +11,7 @@ const Board = mongoose.model('Board', {
     items: [BoardItem]
 });
 
-const BoardItem = mongoose.model('Item', {
+const BoardItem = mongoose.model('BoardItem', {
     name: {
         type: String,
         default: ''
