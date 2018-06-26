@@ -4,18 +4,22 @@ mongoose.connect('mongodb://localhost/boards');
 
 
 const Board = mongoose.model('Board', {
-    boardName: {
+    name: {
         type: String,
+        default: ''
     },
-    items: Array 
-})
+    items: [BoardItem]
+});
 
-const itemName = mongoose.model('Item', {
-    nameItem: String
-    
-})
+const BoardItem = mongoose.model('BoardItem', {
+    name: {
+        type: String,
+        default: ''
+    }
+});
 
 
 module.exports = {
     Board: Board,
+    BoardItem: BoardItem
 }
