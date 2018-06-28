@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { BrowserTransferStateModule } from '@angular/platform-browser';
 
 @Injectable()
 
@@ -8,7 +9,8 @@ export class BoardsService {
   private items: Array<Boarditem> = [];
   private boards: Array<Board> = [];
   constructor(private api: ApiService) {
-  }
+
+}
 }
 export class Board {
   id: string = '';
