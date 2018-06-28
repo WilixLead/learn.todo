@@ -32,7 +32,7 @@ export class ApiService {
 }
 
 
-export interface ApiService {
+export interface BoardsInetr {
   board: Board;
   boards: Array<Board>;
 }
