@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { ApiService } from './api.service';
 import { boardComponent } from './board/board.component';
-import { boardItemComponent } from './board-item/boardItem.component';
+import { boardItemComponent } from './board-item/board-item.component';
 
 
 @NgModule({
