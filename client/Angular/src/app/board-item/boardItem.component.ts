@@ -4,7 +4,7 @@ import { Boarditem, BoardsService, Board, } from '../Boards.service';
 import { ApiService } from '../api.service';
 
 @Component({
-  selector: 'board-item ',
+  selector: 'boardItem ',
   templateUrl: './board-item.component.html',
   styleUrls: ['./board-item.component.css']
 })
