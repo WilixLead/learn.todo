@@ -4,7 +4,7 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class ApiService {
-  apiUrl: string = 'http://localhost:3000';  // localhost пока нет сервера  
+  apiUrl: string = 'http://localhost:4200';  // localhost пока нет сервера
 
   constructor(private http: Http) {
 
@@ -32,8 +32,7 @@ export class ApiService {
 }
 
 
-export interface ApiService {
-  success: boolean
-  board: Board
-  boards: Array<Board>
+export interface BoardsInetr {
+  board: Board;
+  boards: Array<Board>;
 }
