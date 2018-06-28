@@ -33,6 +33,6 @@ export class ApiService {
 
 
 export interface ApiService {
-  board: Board
-  boards: Array<Board>
+  board: Board;
+  boards: Array<Board>;
 }
