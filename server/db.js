@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/boards');
+let promMongo = new Promise((resolve, reject) => {
+    resolve(mongoose.connect('mongodb://localhost/boards'));
+});
+promMongo.then(
+    result => console.log('Successful connection'),
+    error => console.log("Can't connect to MongoDb")
+)
 
 const boardItemSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    default: ''
-  }
+    name: {
+        type: String,
+        default: ''
+    }
 });
 
 const Board = mongoose.model('Board', {
