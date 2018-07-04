@@ -1,0 +1,20 @@
+.centerText {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.438em;
+}
+
+.btn.btn-outline-secondary {
+    font-family: 'Indie Flower', cursive;
+}
+
+.form-control {
+    font-family: 'Indie Flower', cursive;
+}
+
+.navbar.navbar-expand-lg.navbar-dark.bg-dark {
+    box-shadow: 0 0 5px;
+}
+
+div.col-3 {
+    top: 8px;
+}
