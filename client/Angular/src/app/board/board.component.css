@@ -1,0 +1,27 @@
+.card {
+  top: 8px;
+  text-align: left;
+  font-family: 'Indie Flower', cursive;
+}
+
+.card-header {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Indie Flower', cursive;
+}
+
+.card-header input {
+  position: relative;
+  width: 80%;
+  font-family: 'Indie Flower', cursive;
+}
+
+button.close {
+  color: red;
+}
+
+.card-footer {
+  padding: 5px;
+  font-family: 'Indie Flower', cursive;
+}
+
