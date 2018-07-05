@@ -1,1 +1,9 @@
-
+#X {
+    font-size: 20px;
+}
+span.input-group-text {
+    border-left: 0px; 
+}
+input.form-control {
+    border-right: 0px;
+}
