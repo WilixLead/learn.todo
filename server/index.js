@@ -40,10 +40,18 @@ app.delete('/:id', function (req, res) {
 
 // Роут на обновление произвольной доски по _id в БД:
 
-app.put('/upd/:id', function (req, res) {
-  db.Board.updateOne({ _id: { $in: req.params.id } }).then(() => {
-    res.send(' Board updated ');
-  })
+app.put('/upd', function (req, res) {
+
+  db.Board.findByIdAndUpdate(req.body.id,
+    {
+      name: req.body.name,
+      items: req.body.items
+    },
+    function(err) {
+      if (err) throw err;
+      res.send(' Board updated ');
+    });
+
 });
 
 // Запуск сервера приемки http-запросов:
