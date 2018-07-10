@@ -15,6 +15,7 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   next();
   });
+
 // Роут на получение всех досок:
 
 app.get('/boards', (req, res) => {
@@ -41,6 +42,22 @@ app.delete('/:id', function (req, res) {
   db.Board.deleteOne({ _id: { $in: req.params.id } }).then(() => {
     res.send(' Board deleted ');
   })
+});
+
+// Роут на обновление произвольной доски по _id в БД:
+
+app.put('/upd', function (req, res) {
+
+  db.Board.findByIdAndUpdate(req.body.id,
+    {
+      name: req.body.name,
+      items: req.body.items
+    },
+    function(err) {
+      if (err) throw err;
+      res.send(' Board updated ');
+    });
+
 });
 
 // Запуск сервера приемки http-запросов:
