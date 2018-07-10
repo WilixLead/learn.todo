@@ -19,7 +19,7 @@ export class ApiService {
   }
 
   editBoard(id: string, board: Board) {
-    return this.http.put(this.apiUrl + id + "/", board.title).toPromise();  //пока нет рабочей версии put запроса на сервере
+    return this.http.put(this.apiUrl + 'upd', '/').toPromise();  //пока нет рабочей версии put запроса на сервере
   }
 
   deleteBoard(id: string) {
