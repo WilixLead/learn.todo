@@ -4,30 +4,26 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class ApiService {
-  apiUrl: string = 'http://localhost:4200';  // localhost пока нет сервера
+  apiUrl: string = 'http://localhost:3000/';  
 
   constructor(private http: Http) {
 
   }
 
   getBoards() {
-    return this.http.get(this.apiUrl + '/boards/').toPromise();
+    return this.http.get(this.apiUrl + 'boards').toPromise();
   }
 
   createBoard(board: Board) {
-    return this.http.post(this.apiUrl + '/board/', board).toPromise();
-  }
-
-  getBoard(id: string) {
-    return this.http.get(this.apiUrl + '/board/' + id).toPromise();
+    return this.http.post(this.apiUrl + board.title , '/').toPromise();
   }
 
   editBoard(id: string, board: Board) {
-    return this.http.put(this.apiUrl + '/board/' + id, board).toPromise();
+    return this.http.put(this.apiUrl + 'upd', '/').toPromise();  //пока нет рабочей версии put запроса на сервере
   }
 
   deleteBoard(id: string) {
-    return this.http.delete(this.apiUrl + '/board/' + id).toPromise();
+    return this.http.delete(this.apiUrl + id ).toPromise();
   }
 }
 
