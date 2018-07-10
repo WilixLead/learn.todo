@@ -43,14 +43,6 @@ app.delete('/:id', function (req, res) {
   })
 });
 
-// Роут на обновление произвольной доски по _id в БД:
-
-app.put('/:name/id', function (req, res) {
-  db.Board.updateOne({ _id: { $in: req.params.id } }).then(() => {
-    res.send(' Board updated ');
-  })
-});
-
 // Запуск сервера приемки http-запросов:
 
 app.listen(3000, () => console.log('Server listening on port 3000!'));
