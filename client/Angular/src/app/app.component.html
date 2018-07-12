@@ -29,7 +29,7 @@
 
   <div class="row">
 
-    <board class="col-3">
+    <board *ngFor="let board of boards" class="col-3" [isBoard]="board">
 
     </board>
 
@@ -37,10 +37,10 @@
 
       <div class="input-group ">
 
-        <input placeholder="Title of the new board" type="text" class="form-control">
+        <input [(ngModel)]="inAdd" placeholder="Title of the new board" type="text" class="form-control">
 
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button">Add</button>
+          <button (click)="addBoard()" class="btn btn-outline-secondary" type="button">Add</button>
         </div>
 
       </div>

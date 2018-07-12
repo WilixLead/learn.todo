@@ -9,7 +9,22 @@ import { isNgTemplate } from '@angular/compiler';
 })
 export class AppComponent {
   
+  inAdd;
+  boards:Array<Board> = [];
+  
+  
+
+  addBoard() {
+    if(this.inAdd == '') {
+      return; 
+      }
+      let board = new Board() ;
+      board.title = this.inAdd;
+      this.boardsService.saveAddBoard(board);
+      console.log(this.boards);
+}
+
 constructor(private boardsService: BoardsService){
-   
+  this.boards = boardsService.get();
   }
 } 

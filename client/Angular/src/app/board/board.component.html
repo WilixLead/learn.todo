@@ -2,17 +2,17 @@
 
   <div class="card-header">
 
-    <input type="text"> <!-- Board header -->
+    <input [(ngModel)]="board.title" type="text"> <!-- Board header -->
 
-    <button type="button" class="close" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
+    <button (click)="removeBoard(i, board)" type="button" class="close" aria-label="Close">
+      <span (click)="removeBoard(i, board)"aria-hidden="true">&times;</span>
     </button>
 
   </div>
 
   <ul class="list-group list-group-flush"> <!-- Items -->
-    <boardItem class="list-group-item">
-
+    <boardItem [isBoard]='board' [isBoardItem]="item" [isIndex]="i" class="list-group-item " *ngFor="let item of board.items; let i = index">
+ 
     </boardItem>
   </ul>
 
@@ -20,10 +20,10 @@
 
     <div class="input-group">
 
-      <input type="text" placeholder="Add new item" class="form-control">
+      <input [(ngModel)]="board.NewItem" type="text" placeholder="Name of the new item" class="form-control">
 
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button">Add</button>
+        <button (click)='itemAdd(id,board)' class="btn btn-outline-secondary" type="button">Add</button>
       </div>
 
     </div>
