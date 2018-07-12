@@ -17,14 +17,14 @@ export class boardComponent implements OnInit {
     
   }
 
-  ItemAdd(id, board) {
+  itemAdd(id, board) {
     if (board.NewItem == 0) {
       return;
     }
     let item = new Boarditem;
     item.text = board.NewItem;
     board.items.push(item); 
-    this.boardsService.AddItemNew(board.id, board);
+    this.boardsService.addItemNew(board.id, board);
     board.NewItem = '';
     console.log(board);
   }

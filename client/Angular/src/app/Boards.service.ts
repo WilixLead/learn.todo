@@ -12,7 +12,7 @@ export class BoardsService {
   
 }
 
-AddItemNew(id:string, board:Board) { 
+addItemNew(id:string, board:Board) { 
   return this.api.editBoard(id, board).then((res:any)=>{ 
     
     }) 
