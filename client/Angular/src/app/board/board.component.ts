@@ -12,9 +12,9 @@ export class boardComponent implements OnInit {
   constructor(private boardsService: BoardsService) { }
 
   removeBoard(i, board:Board) {
-    
-    this.boardsService.saveDeleteBoard(i, board.id );
-    
+
+    this.boardsService.saveDeleteBoard(i, board._id );
+
   }
 
   itemAdd(id, board) {
@@ -23,12 +23,12 @@ export class boardComponent implements OnInit {
     }
     let item = new Boarditem;
     item.text = board.NewItem;
-    board.items.push(item); 
+    board.items.push(item);
     this.boardsService.addItemNew(board.id, board);
     board.NewItem = '';
     console.log(board);
   }
-  
+
   ngOnInit() {
   }
 }

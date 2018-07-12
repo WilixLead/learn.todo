@@ -8,23 +8,24 @@ import { isNgTemplate } from '@angular/compiler';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  inAdd;
+
+  inAdd: string = '';
   boards:Array<Board> = [];
-  
-  
+
+  constructor(private boardsService: BoardsService){
+    this.boards = boardsService.get();
+  }
 
   addBoard() {
-    if(this.inAdd == '') {
-      return; 
-      }
-      let board = new Board() ;
-      board.title = this.inAdd;
-      this.boardsService.saveAddBoard(board);
-      console.log(this.boards);
-}
 
-constructor(private boardsService: BoardsService){
-  this.boards = boardsService.get();
+    if(this.inAdd == '') {
+      return;
+      }
+
+    let board = new Board() ;
+    board.title = this.inAdd;
+    this.boardsService.saveAddBoard(board);
+    console.log(this.boards);
   }
-} 
+
+}
