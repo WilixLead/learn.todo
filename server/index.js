@@ -29,7 +29,7 @@ app.get('/boards', (req, res) => {
 
 app.post('/:name', function (req, res) {
   let board = new db.Board();
-  board.name = req.params.name;
+  board.title = req.params.name;
   board.save().then(() => {
     res.send(' Board added ');
   });
@@ -50,7 +50,7 @@ app.put('/upd', function (req, res) {
 
   db.Board.findByIdAndUpdate(req.body.id,
     {
-      name: req.body.name,
+      title: req.body.name,
       items: req.body.items
     },
     function(err) {

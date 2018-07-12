@@ -6,14 +6,14 @@ err => console.log("Can't connect to MongoDb")
 );
 
 const boardItemSchema = new mongoose.Schema({
-    name: {
+    text: {
         type: String,
         default: ''
     }
 });
 
 const Board = mongoose.model('Board', {
-    name: {
+    title: {
         type: String,
         default: ''
     },
