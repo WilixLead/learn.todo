@@ -48,9 +48,9 @@ app.delete('/:id', function (req, res) {
 
 app.put('/upd', function (req, res) {
 
-  db.Board.findByIdAndUpdate(req.body.id,
+  db.Board.findByIdAndUpdate(req.body._id,
     {
-      title: req.body.name,
+      title: req.body.title,
       items: req.body.items
     },
     function(err) {

@@ -11,9 +11,14 @@ export class boardComponent implements OnInit {
   @Input('isBoard') board:Board;
   constructor(private boardsService: BoardsService) { }
 
-  removeBoard(i, board:Board) {
+  saveBoardItem(board: Board) {
+    console.log(board);
+    this.boardsService.saveAddBoard(board);
+  }
 
-    this.boardsService.saveDeleteBoard(i, board._id );
+  removeBoard(board:Board) {
+
+    this.boardsService.saveDeleteBoard(board);
 
   }
 
