@@ -5,15 +5,15 @@ import { BoardsService } from './Boards.service';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { ApiService } from './api.service';
-import { boardComponent } from './board/board.component';
-import { boardItemComponent } from './board-item/board-item.component';
+import { BoardComponent } from './board/board.component';
+import { BoardItemComponent } from './board-item/board-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    boardComponent,
-    boardItemComponent,
+    BoardComponent,
+    BoardItemComponent,
   ],
   imports: [
     BrowserModule,

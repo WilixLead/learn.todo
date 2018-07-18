@@ -7,7 +7,7 @@ import { ApiService } from '../api.service';
   templateUrl: './board.component.html',
   styleUrls: [ './board.component.css']
 })
-export class boardComponent implements OnInit {
+export class BoardComponent implements OnInit {
   @Input('isBoard') board:Board;
   constructor(private boardsService: BoardsService) { }
 
@@ -22,14 +22,14 @@ export class boardComponent implements OnInit {
 
   }
 
-  itemAdd(id, board) {
+  itemAdd(_id, board) {
     if (board.NewItem == 0) {
       return;
     }
     let item = new Boarditem;
     item.text = board.NewItem;
     board.items.push(item);
-    this.boardsService.addItemNew(board.id, board);
+    this.boardsService.addItemNew(board._id, board);
     board.NewItem = '';
     console.log(board);
   }

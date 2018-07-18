@@ -1,7 +1,7 @@
     <div class="input-group mb-3">
-        <input [(ngModel)]='item.text' type="text" class="form-control"  aria-label="Text input with checkbox">
+        <input (change)="saveItemEdit(board)" [(ngModel)]='item.text' type="text" class="form-control"  aria-label="Text input with checkbox">
         <div class="input-group-append">
-            <span class="input-group-text"> <button  type="button" class="close" aria-label="Close">
+            <span class="input-group-text"> <button (click)="removeItem(board)"  type="button" class="close" aria-label="Close">
                     <span id="X" aria-hidden="true"> X </span>
             </button>
             </span>
