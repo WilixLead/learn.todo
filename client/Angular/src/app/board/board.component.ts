@@ -7,7 +7,7 @@ import { ApiService } from '../api.service';
   templateUrl: './board.component.html',
   styleUrls: [ './board.component.css']
 })
-export class boardComponent implements OnInit {
+export class BoardComponent implements OnInit {
   @Input('isBoard') board:Board;
   constructor(private boardsService: BoardsService) { }
 
