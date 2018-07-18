@@ -16,6 +16,15 @@ export class boardItemComponent implements OnInit {
 
     }
 
+  removeItem(board:Board) {
+  board.items.splice(this.i, 1)
+  this.boardsService.saveAddBoard(board);
+  }
+
+  saveItemEdit(board) {
+    this.boardsService.saveAddBoard(this.board);
+  }
+
   ngOnInit() {
   }
 
