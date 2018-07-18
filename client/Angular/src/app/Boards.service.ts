@@ -22,7 +22,7 @@ export class BoardsService {
       this.load().then(() => {
         this.startUpdate();
       });
-    }, 5000);
+    }, 10000);
   }
 
   load() {
@@ -85,8 +85,6 @@ export class BoardsService {
         }
       });
 
-      console.log(this.boards);
-
     });
   }
 
@@ -95,19 +93,31 @@ export class BoardsService {
     });
   }
 
-  saveDeleteBoard (id:string, i) {
-    return this.api.deleteBoard(id).then(()=>{
-        this.boards.splice(i, 1);
+  saveDeleteBoard (board: Board) {
+    this.api.deleteBoard(board._id).then((res: any) => {
+      res = res.json();
+
+      if (!res || !res.success) {
+        console.log("Не удалилось");
+        return;
+      }
+
+      this.boards.splice(this.boards.indexOf(board), 1);
     });
+    // return this.api.deleteBoard(id).then(()=>{
+    //     this.boards.splice(i, 1);
+    // });
   }
 
   saveAddBoard (board:Board) {
-    if(board._id.length == 0){
-      return this.api.createBoard(board).then((res:any)=>{
-          this.boards.push(board);
+    if (!board._id || board._id.length == 0) {
+      return this.api.createBoard(board).then((res: any) => {
+        res = res.json();
+        board._id = res._id;
+        this.boards.push(board);
       });
     } else {
-        return this.api.editBoard(board._id, board);
+      return this.api.editBoard(board._id, board);
     }
   }
 

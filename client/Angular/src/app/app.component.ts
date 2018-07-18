@@ -20,7 +20,7 @@ export class AppComponent {
 
     if(this.inAdd == '') {
       return;
-      }
+    }
 
     let board = new Board() ;
     board.title = this.inAdd;
