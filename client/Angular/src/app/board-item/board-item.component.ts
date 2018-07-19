@@ -17,8 +17,8 @@ export class BoardItemComponent implements OnInit {
     }
 
   removeItem(board:Board) {
-  board.items.splice(this.i, 1)
-  this.boardsService.saveAddBoard(board);
+    board.items.splice(this.i, 1)
+    this.boardsService.saveAddBoard(board);
   }
 
   saveItemEdit(board) {

@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Board, BoardsService, Boarditem } from '..//Boards.service'
 import { ApiService } from '../api.service';
 import { DragulaService } from "ng2-dragula/ng2-dragula";
+import { Subscription } from '../../../node_modules/rxjs';
 
 @Component({
   selector: 'board',
@@ -11,8 +12,11 @@ import { DragulaService } from "ng2-dragula/ng2-dragula";
     './board.component.css'
   ]
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnInit, OnDestroy {
   @Input('isBoard') board:Board;
+
+  dropSubscription: Subscription;
+
   constructor(
     private boardsService: BoardsService,
     private dragula: DragulaService
@@ -24,9 +28,7 @@ export class BoardComponent implements OnInit {
   }
 
   removeBoard(board:Board) {
-
     this.boardsService.saveDeleteBoard(board);
-
   }
 
   itemAdd(_id, board) {
@@ -42,13 +44,14 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.dragula.drag.subscribe(() => {
+    this.dropSubscription = this.dragula.drop.subscribe(() => {
       this.saveBoardItem(this.board);
     });
-    this.dragula.drop.subscribe(() => {
-      this.saveBoardItem(this.board);
-    });
+  }
 
+  ngOnDestroy() {
+    if (this.dropSubscription) {
+      this.dropSubscription.unsubscribe();
+    }
   }
 }
