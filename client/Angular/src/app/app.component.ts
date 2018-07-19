@@ -26,6 +26,7 @@ export class AppComponent {
     board.title = this.inAdd;
     this.boardsService.saveAddBoard(board);
     console.log(this.boards);
+    this.inAdd = '';
   }
 
 }

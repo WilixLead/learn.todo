@@ -30,7 +30,7 @@ export class BoardComponent implements OnInit {
   }
 
   itemAdd(_id, board) {
-    if (board.NewItem == 0) {
+    if (!board.NewItem) {
       return;
     }
     let item = new Boarditem;
