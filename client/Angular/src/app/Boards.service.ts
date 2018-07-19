@@ -95,18 +95,9 @@ export class BoardsService {
 
   saveDeleteBoard (board: Board) {
     this.api.deleteBoard(board._id).then((res: any) => {
-      res = res.json();
-
-      if (!res || !res.success) {
-        console.log("Не удалилось");
-        return;
-      }
-
       this.boards.splice(this.boards.indexOf(board), 1);
     });
-    // return this.api.deleteBoard(id).then(()=>{
-    //     this.boards.splice(i, 1);
-    // });
+    
   }
 
   saveAddBoard (board:Board) {

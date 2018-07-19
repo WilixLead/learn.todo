@@ -31,7 +31,7 @@ app.post('/:name', function (req, res) {
   let board = new db.Board();
   board.title = req.params.name;
   board.save().then(() => {
-    res.send(' Board added ');
+    res.send(board);
   });
 });
 
