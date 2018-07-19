@@ -1,15 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Board, BoardsService, Boarditem } from '..//Boards.service'
 import { ApiService } from '../api.service';
+import { DragulaService } from "ng2-dragula/ng2-dragula";
 
 @Component({
   selector: 'board',
   templateUrl: './board.component.html',
-  styleUrls: [ './board.component.css']
+  styleUrls: [
+    "../../../node_modules/dragula/dist/dragula.css",
+    './board.component.css'
+  ]
 })
 export class BoardComponent implements OnInit {
   @Input('isBoard') board:Board;
-  constructor(private boardsService: BoardsService) { }
+  constructor(
+    private boardsService: BoardsService,
+    private dragula: DragulaService
+  ) { }
 
   saveBoardItem(board: Board) {
     console.log(board);
@@ -35,5 +42,13 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.dragula.drag.subscribe(() => {
+      this.saveBoardItem(this.board);
+    });
+    this.dragula.drop.subscribe(() => {
+      this.saveBoardItem(this.board);
+    });
+
   }
 }
