@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { ApiService } from './api.service';
 import { BoardComponent } from './board/board.component';
 import { BoardItemComponent } from './board-item/board-item.component';
+import { DragulaModule } from 'ng2-dragula';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { BoardItemComponent } from './board-item/board-item.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    DragulaModule,
   ],
   providers: [
     ApiService,

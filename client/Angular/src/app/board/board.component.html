@@ -10,10 +10,15 @@
 
   </div>
 
-  <ul class="list-group list-group-flush"> <!-- Items -->
+  <ul class="list-group list-group-flush"
+      [dragulaModel]='board.items'
+      [dragula]="'evented-bag'">
+
+    <!-- Items -->
     <boardItem [isBoard]='board' [isBoardItem]="item" [isIndex]="i" class="list-group-item " *ngFor="let item of board.items; let i = index">
 
     </boardItem>
+
   </ul>
 
   <div class="card-footer"> <!-- Add item function -->
